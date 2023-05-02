@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ruangan extends Model
 {
-    protected $table = 'barang';
+    protected $table = 'ruangan';
     protected $guarded = [''];
 
     public function users()

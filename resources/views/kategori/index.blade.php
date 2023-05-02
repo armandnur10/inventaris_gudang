@@ -43,8 +43,9 @@
                                         <form action="{{route('kategori.destroy', $row->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda akan menghapus data {{$row->nama_kategori}}')">Hapus</button>
-                                            <a href="{{route('kategori.edit', $row->id)}}" class="btn btn-success">Edit</a>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda akan menghapus data {{$row->name}}')">Hapus</button>
+                                            <a href="{{route('kategori.edit', $row->id)}}" class="btn btn-warning">Edit</a>
+                                            <!-- <a href="{{route('kategori.show', $row->id)}}" class="btn btn-success">detail</a> -->
                                         </form>
                                        
                                     </td>

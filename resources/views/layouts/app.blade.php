@@ -10,11 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-   <!-- Scripts -->
-   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js">
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js">
     </script>
+     <script src="https://cdn.ckeditor.com/4.20.2/standard-all/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap4.min.js"></script>
     <!-- Fonts -->
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css">
 
-    
+
 
 </head>
 
@@ -89,9 +90,21 @@
         </main>
     </div>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#myTable').DataTable();
-        } );
+        });
+
+    </script>
+    <script>
+         var konten = document.getElementById("konten");
+        CKEDITOR.replace(konten, {
+            width: '100%',
+            extraPlugins: 'editorplaceholder',
+            editorplaceholder: 'Deskripsi spesifikasi barang...',
+            uiColor: '#CCEAEE'
+        });
+        CKEDITOR.config.allowedContent = true;
+
     </script>
 </body>
 

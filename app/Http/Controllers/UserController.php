@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\ruangan;
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
-class RuanganController extends Controller
+use App\User;
+use App\Ruangan;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $ruangan = Ruangan::all();
         $user = User::all();
-        return view('ruangan.index', compact('ruangan', 'user'));
+        return view('user.index', compact('user'));
     }
 
     /**
@@ -39,64 +40,74 @@ class RuanganController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
-        $input ['nomor_ruangan'] = 'Ruangan'.' '.random_int(100, 1000);
-        
-        Ruangan::create($input);
-        return redirect()->route('ruangan.index');
+        if($request->input('password'))
+        {
+            $input['password'] = bcrypt($input['password']);
+        }
+        User::create($input);
+        return redirect()->route('user.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $ruangan = Ruangan::findOrFail($id);
-        $user= User::all();
-        return view('ruangan.detail', compact('ruangan', 'user'));
+        $user = User::findOrFail($id);
+        $ruangan = Ruangan::where('id_user', $id)->get()->all();
+        return view('user.detail', compact('user', 'ruangan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $ruangan = Ruangan::findOrFail($id);
-        $user = User::all(); 
-        return view('ruangan.edit', compact('ruangan', 'user'));
+        $user = User::findOrFail($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ruangan  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-
-        $ruangan = Ruangan::findOrFail($id);
+        $user = User::findOrFail($id);
         $data = $request->all();
-        $ruangan->update($data);
-        return redirect('/ruangan');
+
+        if($request->input('password'))
+        {
+            $data['password'] = bcrypt($data['password']);
+        }
+        else
+        {
+            $data = Arr::except($data, ['password']);
+        }
+        
+        $user->update($data);
+        return redirect('/user');
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ruangan  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = Ruangan::findOrFail($id);
+        $data = User::findOrFail($id);
         $data->delete();
         return back();
     }

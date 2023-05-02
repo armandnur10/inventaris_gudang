@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SearchController@index');
 
 Auth::routes();
 
@@ -23,5 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('kategori', 'KategoriController');
 
 Route::resource('ruangan', 'RuanganController');
+
+Route::resource('user', 'UserController');
+
+Route::resource('ruangan', 'RuanganController');
+
+Route::resource('barang', 'BarangController');
 
 
