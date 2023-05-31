@@ -118,8 +118,8 @@
                                 </div>
                                 @if(Request::get('keyword'))
 
-                                <div class="table-resposive">
-                                    <table class="table-hover table">
+                                <div class="table-resposive py-0">
+                                    <table class="table-hover table py-0">
                                         <thead>
                                             <tr>
                                                 <th>Nama Barang</th>
@@ -147,10 +147,8 @@
                 </div>
                 @endif
                 @else
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <a class="btn px-4 py-2 border btn-success fs-3 fw-bold" href="{{ route('login') }}">Login</a>
-                    <a class="btn px-4 py-2 border btn-warning fs-3 fw-bold mx-2"
-                        href="{{ route('register') }}">Register</a>
                 </div>
                 @endauth
                 @endif

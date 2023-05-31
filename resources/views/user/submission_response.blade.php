@@ -15,22 +15,18 @@
                 </thead>
                 <tbody>
                     @foreach ($submission as $row)
+                    @if($row->status_perubahan == 'diproses')
                     <tr>
                         <td>{{$row->nama_pic}}</td>
                         <td>{{$row->nama_barang}}</td>
                         <td>{{$row->pengajuan}}</td>
                         <td>{{$row->status_perubahan}}</td>
                         <td>
-                            <form action="{{route('submission.destroy', $row->id)}}" method="post">
-                                @csrf
-                                @method('delete')
-
-                                <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Apakah anda akan menghapus Pengajuan {{$row->nama_barang}}')">Hapus</button>
-                                <a href="{{route('submission.edit', $row->id)}}" class="btn btn-warning">Edit</a>
-                            </form>
+                            <a href="{{route('submission.edit', $row->id)}}" class="btn btn-warning">Edit</a>
                         </td>
                     </tr>
+                    @endif
+                    
                     @endforeach
                 </tbody>
 
