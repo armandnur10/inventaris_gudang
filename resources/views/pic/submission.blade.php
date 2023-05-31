@@ -59,14 +59,18 @@
                         <tbody>
                             @foreach ($submission as $row)
                             <tr>
-                                <td>{{$row->nama_barang}}</td>
-                                <td>{{$row->pengajuan}}</td>
-                                <td>{{$row->status_perubahan}}</td>
                                 <td>
+                                    {{$row->nama_barang}}
+                                    <div class="pengajuan_">{{$row->pengajuan}}</div>
+                                    <div class="perubahan_">{{$row->status_perubahan}}</div>
+                                </td>
+                                <td class="pengajuan">{{$row->pengajuan}}</td>
+                                <td class="status_perubahan">{{$row->status_perubahan}}</td>
+                                <td class="action">
                                     <form action="{{route('submission.destroy', $row->id)}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger"
+                                        <button type="submit" class="btn btn-danger my-3"
                                             onclick="return confirm('Apakah anda akan menghapus Pengajuan {{$row->nama_barang}}')">Hapus</button>
                                         <a href="{{route('submission.edit', $row->id)}}"
                                             class="btn btn-warning">Edit</a>

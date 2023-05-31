@@ -22,7 +22,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    
+
     <link rel="shortcut icon"
         href="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/company-logo/6f785431b93663a6e5eda1f3cedc13b4.png">
 
@@ -33,9 +33,55 @@
     <style>
         @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
         * {
             font-family: 'Montserrat', sans-serif;
         }
+
+        .pengajuan_ {
+            display: none;
+        }
+
+        .perubahan_ {
+            display: none;
+        }
+
+        @media screen and (max-width: 1150px) {
+            td.pengajuan {
+                display: none;
+            }
+
+            th.pengajuan {
+                display: none;
+            }
+
+            .pengajuan_ {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            td.status_perubahan {
+                display: none;
+            }
+
+            th.status_perubahan {
+                display: none;
+            }
+
+            .perubahan_ {
+                display: block;
+            }
+
+            .pengajuan_ {
+                max-width: 50vw;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+            }
+        }
+
     </style>
 
 
@@ -93,11 +139,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
+                                        style="display: none;">
+                                        @csrf
                                     </form>
                                 </li>
                                 <li><a class="dropdown-item" href="/">Landing Page</a></li>
@@ -126,7 +173,7 @@
         var konten = document.getElementById("konten");
         CKEDITOR.replace(konten, {
             width: '100%',
-            height: '100px',    
+            height: '100px',
             extraPlugins: 'editorplaceholder',
             editorplaceholder: 'Deskripsi spesifikasi barang...',
             uiColor: '#CCEAEE'
