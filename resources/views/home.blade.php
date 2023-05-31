@@ -1,23 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container d-flex flex-column align-items-center justify-content-center" style="height: calc(100vh - 11rem);">
+    <h1 class="my-3">Halo, {{Auth()->user()->name}}</h1>
+    <p class="my-3">Selamat Datang Di Aplikasi Manajemen inventaris Gudang</p>
 </div>
 @endsection

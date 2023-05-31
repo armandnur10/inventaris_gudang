@@ -12,33 +12,25 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Nama Lengkap</span>
-                                    </div>
                                     <input type="text" name="name" class="form-control" placeholder="nama lengkap">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Username</span>
-                                    </div>
                                     <input type="text" name="username" class="form-control" placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Email</span>
-                                    </div>
                                     <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Password</span>
-                                    </div>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
@@ -64,13 +56,13 @@
             <div class="card mt-4">
                 <div class="card-header">Data kategori</div>
 
-                <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-strip" id="myTable">
-                            <thead>
+                        <table class="table table-hover" id="myTable">
+                            <thead class="thead-light">
                                 <th>Nama</th>
-                                <th>Nomor</th>
-                                <th>pilihan</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th></th>
 
                             </thead>
                             <tbody>
@@ -79,14 +71,15 @@
                                 <tr>
                                     <td>{{$row->name}}</td>
                                     <td>{{$row->username}}</td>
-                                    <td>
+                                    <td>{{$row->email}}</td>
+                                    <td class="text-end action">
                                         <form action="{{route('user.destroy', $row->id)}}" method="post">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('Apakah anda akan menghapus data {{$row->name}}')">Hapus</button>
-                                            <a href="{{route('user.edit', $row->id)}}" class="btn btn-success">Edit</a>
-                                            <a href="{{route('user.show', $row->id)}}" class="btn btn-warning">Detail</a>
+                                            <a href="{{route('user.edit', $row->id)}}" class="btn btn-success edit">Edit</a>
+                                            <a href="{{route('user.show', $row->id)}}" class="btn btn-warning my-2">Detail</a>
                                         </form>
 
                                     </td>
@@ -96,7 +89,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
                 </div>
             </div>
         </div>

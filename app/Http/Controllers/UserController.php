@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 
 use App\User;
 use App\Ruangan;
+use App\Barang;
 
 class UserController extends Controller
 {
@@ -19,6 +20,13 @@ class UserController extends Controller
     {
         $user = User::all();
         return view('user.index', compact('user'));
+    }
+
+    public function pic() 
+    {
+        $user = User::all();
+        $barang = Barang::all();
+        return view('pic.index', compact('user', 'barang'));
     }
 
     /**

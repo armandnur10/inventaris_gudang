@@ -13,33 +13,25 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Nama Lengkap</span>
-                                    </div>
                                     <input type="text" value="{{$user->name}}" name="name" class="form-control" placeholder="nama lengkap">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Username</span>
-                                    </div>
                                     <input type="text" name="username" value="{{$user->username}}"  class="form-control" placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Email</span>
-                                    </div>
                                     <input type="email" name="email" value="{{$user->email}}"  class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon">Password</span>
-                                    </div>
                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
                             </div>
@@ -49,10 +41,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon">Nama Kategori</span>
-                            </div>
+                        <!-- <div class="input-group mb-3
+                                <span class="input-group-text" id="basic-addon">Nama Kategori</spa
                             <input type="text" name="nama_kategori" class="form-control" placeholder="nama kategori">
                         </div>
                         <div class="form-group">

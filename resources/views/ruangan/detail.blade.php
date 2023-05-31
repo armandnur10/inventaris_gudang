@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Detail Ruangan</div>
-                <div class="card-body">
-                    <table class="table">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    Detail Ruangan
+                    <a href="{{route('ruangan.edit', $ruangan->id)}}" class="btn btn-warning">Edit</a>
+                </div>
+                    <table class="table table-responsive">
                        <tr>
                             <th>Nomor Ruangan</th>
                             <td>:</td>
@@ -30,7 +32,6 @@
                        </tr>
 
                     </table>
-                </div>
             </div>
 
             

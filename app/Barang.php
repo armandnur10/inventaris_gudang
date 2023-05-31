@@ -18,9 +18,4 @@ class Barang extends Model
     {
         return $this->belongsTo('App\Kategori', 'id_kategori');
     }
-
-    public function users()
-    {
-        return $this->belongsTo('App\User', 'id_user');
-    }
 }

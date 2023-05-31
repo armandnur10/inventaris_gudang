@@ -10,9 +10,7 @@
                     <form action="{{route('kategori.store')}}" method="post">
                         @csrf
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon">Nama Kategori</span>
-                            </div>
+                            <span class="input-group-text" id="basic-addon">Nama Kategori</span>
                             <input type="text" name="nama_kategori" class="form-control" placeholder="nama kategori">
                         </div>
                         <div class="form-group">
@@ -31,7 +29,7 @@
                             <thead>
                                 <th>Nama</th>
                                 <th>Nomor</th>
-                                <th>pilihan</th>
+                                <th></th>
 
                             </thead>
                             <tbody>
@@ -39,15 +37,17 @@
                                 <tr>
                                     <td>{{$row->nama_kategori}}</td>
                                     <td>{{$row->id}}</td>
-                                    <td>
+                                    <td class="action text-end">
                                         <form action="{{route('kategori.destroy', $row->id)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda akan menghapus data {{$row->name}}')">Hapus</button>
-                                            <a href="{{route('kategori.edit', $row->id)}}" class="btn btn-warning">Edit</a>
-                                            <!-- <a href="{{route('kategori.show', $row->id)}}" class="btn btn-success">detail</a> -->
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="return confirm('Apakah anda akan menghapus data {{$row->name}}')">Hapus</button>
+                                            <a href="{{route('kategori.edit', $row->id)}}"
+                                                class="btn btn-warning my-2">Edit</a>
+
                                         </form>
-                                       
+
                                     </td>
                                 </tr>
                                 @endforeach

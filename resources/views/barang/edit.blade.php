@@ -5,25 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Tambahkan Data PIC Ruangan</div>
+                <div class="card-header">Edit Barang</div>
                 <div class="card-body">
-                    <form action="{{route('barang.update', $barang->id)}}" method="post">
+                    <form action="{{route('barang.update', $barang->id)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         {{method_field('PUT')}}
                         <div class="row">
-                        <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">Nama Barang</span>
-                                    </div>
-                                    <input type="text" name="nama_barang" value="{{$barang->nama_barang}}" class="form-control"
-                                        placeholder="Nama Barang">
+                                    <span class="input-group-text" id="basic-addon">Nama Barang</span>
+                                    <input type="text" name="nama_barang" value="{{$barang->nama_barang}}"
+                                        class="form-control" placeholder="Nama Barang">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <input type="file" class="form-control" value="{{$barang->gambar}}" name="gambar" id="inputGroupFile02">
+                                    <input type="file" class="form-control" value="{{$barang->gambar}}" name="gambar"
+                                        id="inputGroupFile02">
                                     <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                 </div>
 
@@ -31,28 +30,25 @@
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">spek</span>
-                                    </div>
-                                    <input type="text" name="spek" value="{{$barang->spek}}" class="form-control" placeholder="spek">
+                                    <span class="input-group-text" id="basic-addon">spek</span>
+                                    <input type="text" name="spek" value="{{$barang->spek}}" class="form-control"
+                                        placeholder="spek">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">stok</span>
-                                    </div>
-                                    <input type="text" name="stok" value="{{$barang->stok}}" class="form-control" placeholder="stok">
+                                    <span class="input-group-text" id="basic-addon">stok</span>
+                                    <input type="text" name="stok" value="{{$barang->stok}}" class="form-control"
+                                        placeholder="stok">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">satuan</span>
-                                    </div>
-                                    <input type="text" name="satuan" value="{{$barang->satuan}}" class="form-control" placeholder="satuan">
+                                    <span class="input-group-text" id="basic-addon">satuan</span>
+                                    <input type="text" name="satuan" value="{{$barang->satuan}}" class="form-control"
+                                        placeholder="satuan">
                                 </div>
                             </div>
 
@@ -60,11 +56,10 @@
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">Nama Ruangan</span>
-                                    </div>
-                                    <select class="custom-select" name="id_ruangan">
-                                        <option selected value="{{$barang->ruangan->id}}">{{$barang->ruangan->nama_ruangan}}</option>
+                                    <span class="input-group-text" id="basic-addon">Nama Ruangan</span>
+                                    <select class="form-select" name="id_ruangan">
+                                        <option selected value="{{$barang->ruangan->id}}">
+                                            {{$barang->ruangan->nama_ruangan}}</option>
                                         @foreach ($ruangan as $row)
                                         <option value="{{$row->id}}">{{$row->nama_ruangan}}</option>
                                         @endforeach
@@ -74,11 +69,10 @@
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">Kategori Barang</span>
-                                    </div>
-                                    <select class="custom-select" name="id_kategori">
-                                        <option selected value="{{$barang->kategori->id}}">{{$barang->kategori->nama_kategori}}</option>
+                                    <span class="input-group-text" id="basic-addon">Kategori Barang</span>
+                                    <select class="form-select" name="id_kategori">
+                                        <option selected value="{{$barang->kategori->id}}">
+                                            {{$barang->kategori->nama_kategori}}</option>
                                         @foreach ($kategori as $row)
                                         <option value="{{$row->id}}">{{$row->nama_kategori}}</option>
                                         @endforeach
@@ -88,15 +82,14 @@
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">Nama PIC</span>
-                                    </div>
-                                    <select class="custom-select"   name="id_user">
-                                        <option selected value="{{$barang->users->id}}">{{$barang->users->name}}</option>
+                                    <span class="input-group-text" id="basic-addon">Nama PIC</span>
+                                    <select class="form-select" name="id_user">
+                                        <option selected value="{{$barang->users->id}}">{{$barang->users->name}}
+                                        </option>
                                         @foreach ($user as $row)
                                         @if($row->level == 'pic')
                                         <option value="{{$row->id}}">{{$row->name}}</option>
-                                        @endif  
+                                        @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -104,10 +97,8 @@
 
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">status</span>
-                                    </div>
-                                    <select class="custom-select" value="{{$barang->status}}" name="status">
+                                    <span class="input-group-text" id="basic-addon">status</span>
+                                    <select class="form-select" value="{{$barang->status}}" name="status">
                                         <option selected value="{{$barang->status}}">{{$barang->status}}</option>
                                         <option value="baik">Baik</option>
                                         <option value="rusak">Rusak</option>
@@ -119,15 +110,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Tambahkan Data</button>
-                                </div>  
+                                </div>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 </div>

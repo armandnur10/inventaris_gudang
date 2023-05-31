@@ -1,0 +1,164 @@
+
+
+.dataTables_length label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem;
+}
+.dataTables_filter label{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1rem;
+
+}
+table{
+    width: auto;
+}
+
+.table-responsive{
+    overflow-x: hidden!important;
+}
+
+.dataTables_filter .form-control{
+    width: 100px;
+    margin: 0 1rem;
+
+}
+
+.dataTables_length .form-control{
+    width: fit-content;
+    margin: 0 1rem;
+
+}
+
+
+.dataTables_wrapper .row{
+    margin: 0;
+}
+
+.dataTables_wrapper .row .col-sm-12{
+    padding: 0;
+}
+
+
+
+
+.dataTables_filter label input{
+    outline: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.page-item.active .page-link{
+    color: black;
+    border-color: #e7eaf0;
+    
+}
+
+.dataTables_wrapper .row .dataTables_paginate{
+    padding: 1rem 0;
+}
+
+.dataTables_wrapper div.row:nth-of-type(3){
+    padding: 1rem 0;
+}
+
+.dataTables_wrapper div.row:nth-of-type(3) div.col-sm-12:nth-of-type(1){
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+td.nama_barang p{
+    display: none;
+}
+
+@media screen and (max-width: 1250px) {
+    th.spek{
+        display: none;
+    }
+    td.spek{
+        display: none;
+    }
+    td.action .edit{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    td.satuan{
+        display: none;
+    }
+    th.satuan{
+        display: none;
+    }
+    td.nama_kategori{
+        display: none;
+    }
+    th.nama_kategori{
+        display: none;
+    }
+}
+@media screen and (max-width: 850px) {
+    td.stok{
+        display: none;
+    }
+    th.stok{
+        display: none;
+    }
+    td.stok{
+        display: none;
+    }
+    th.stok{
+        display: none;
+    }
+    td.photo{
+        display: none;
+    }
+    th.photo{
+        display: none;
+    }
+    td.action form{
+        display: flex;
+        flex-direction: column;
+    }
+    td.ukuran{
+        display: none;
+    }
+    th.ukuran{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    td.status{
+        display: none;
+    }
+    th.status{
+        display: none;
+    }
+    td.pj{
+        display: none;
+    }
+    th.pj{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    td.nama_ruangan{
+        display: none;
+    }
+    th.nama_ruangan{
+        display: none;
+    }
+    td.nama_barang p{
+        display: block;
+    }
+
+}
+    
+

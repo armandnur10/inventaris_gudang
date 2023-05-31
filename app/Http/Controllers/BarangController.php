@@ -84,7 +84,11 @@ class BarangController extends Controller
         $ruangan = Ruangan::all();
         $user = User::all();
         $barang = Barang::findOrFail($id);
-        return view('barang.edit', compact('kategori', 'ruangan', 'barang', 'user'));
+        if(auth()->user()->level == 'admin'){
+            return view('barang.edit', compact('kategori', 'ruangan', 'barang', 'user'));
+        } else{
+            return view('pic.edit', compact('kategori', 'ruangan', 'barang', 'user'));
+        }
     }
 
     /**
@@ -98,8 +102,28 @@ class BarangController extends Controller
     {
         $barang = Barang::findOrFail($id);
         $data = $request->all();
+        if($request->hasFile('gambar'))
+        {
+            $destination_path = 'public/images/barang';
+            $image = $request->file('gambar');
+            $image_name = time()."_".$image->clientExtension();
+            $path = $request->file('gambar')->storeAs($destination_path, $image_name);
+            $input['gambar'] = $image_name;
+        }
         $barang->update($data);
-        return redirect('/barang');
+        if(auth()->user()->level == 'admin'){
+            return redirect('/barang');
+        } else{
+            return redirect('/pic');
+        }
+    }
+    public function editpic($id)
+    {
+        $kategori = Kategori::all();
+        $ruangan = Ruangan::all();
+        $user = User::all();
+        $barang = Barang::findOrFail($id);
+        return view('pic.edit', compact('kategori', 'ruangan', 'barang', 'user'));
     }
 
     /**

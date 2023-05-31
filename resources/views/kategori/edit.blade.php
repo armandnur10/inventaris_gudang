@@ -11,9 +11,7 @@
                         @csrf
                         {{method_field('PUT')}}
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon">Nama Kategori</span>
-                            </div>
                             <input type="text" name="nama_kategori" value="{{$kategori->nama_kategori}}" class="form-control" placeholder="nama kategori">
                         </div>
                         <div class="form-group">

@@ -18,14 +18,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //route untuk ruangan
-Route::resource('kategori', 'KategoriController');
+Route::resource('kategori', 'KategoriController')->middleware('checkLevel:admin');
 
-Route::resource('ruangan', 'RuanganController');
+Route::resource('ruangan', 'RuanganController')->middleware('checkLevel:admin');
 
-Route::resource('user', 'UserController');
+Route::resource('user', 'UserController')->middleware('checkLevel:admin');
 
-Route::resource('ruangan', 'RuanganController');
+Route::get('/pic', 'UserController@pic')->name('pic')->middleware('checkLevel:pic');
+
+Route::get('/pic/{id}/edit', 'BarangController@editpic')->name('pic.edit')->middleware('checkLevel:pic');
+
+Route::get('/pic/{id}/update', 'BarangController@updatepic')->name('pic.update')->middleware('checkLevel:pic');
+
+Route::resource('submission', 'SubmissionController');
 
 Route::resource('barang', 'BarangController');
+
 
 
